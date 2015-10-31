@@ -9,6 +9,11 @@ var _ = require('lodash');
 var logger = require('winston');
 var config = require('./config')(logger);
 
+function Message(nickname, msg) {
+  this.nickname = nickname;
+  this.msg = msg;
+}
+
 app.use(express.static(path.resolve(__dirname, './public')));
 
 app.get('/', function(req, res) {
@@ -62,6 +67,18 @@ sio.on('connection', function(socket) {
     socket.nickname = nickname;
     viewers.add(nickname);
     console.log('new viewer with nickname %s', nickname, viewers);
+  });
+
+  socket.on('message:new', function(msg) {
+    var message = new Message(socket.nickname, msg);
+    sio.emit('message:updated', message);
+    console.log('Nouveau message: '+ message);
+  });
+
+  socket.on('link:new', function(link) {
+    var link = link;
+    sio.emit('link:updated', link);
+    console.log('Nouveau lien: '+ link);
   });
 
   socket.on('disconnect', function() {
