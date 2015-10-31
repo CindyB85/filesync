@@ -33,23 +33,12 @@ angular
     };
 
     function onMessagesUpdated(message) {
-      /*function updateHTML(){
-      document.getElementById('chatInput').value = "";
-        var element = document.getElementById('chatText');
-        element.scrollTop = element.scrollHeight;
-      }*/
       this.messages.push(message);
       $scope.$apply();
       this.message = "";
-     // setTimeout(updateHTML, 250);
     }
 
     SocketIOService.onMessagesUpdated(onMessagesUpdated.bind(this));
-    /*
-    this.sendLink = function() {
-      console.log(this.linkInput);
-      SocketIOService.sendLink(this.linkInput);
-    }*/
 
     function onLinkUpdated(message){
       this.linkPin.push(message);

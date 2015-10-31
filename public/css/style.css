@@ -112,22 +112,6 @@ h2 {
     right: 0;
     border-left: solid 1px black;
 }
-/*
-#tchatLink {
-    position: absolute;
-    bottom: 0;
-    height: 5%;
-    width: 45%;
-    right: 0;
-    border-left: solid 1px black;
-}
-
-#tchatLink h3 {
-    font-size: 12px;
-    color: blue;
-    margin: 3px;
-
-}*/
 
 #message {
     width: 100%;
