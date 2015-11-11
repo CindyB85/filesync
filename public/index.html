@@ -19,7 +19,7 @@
       <div id="tchatText">
         <div id="tchatLinkPin"> 
           <div ng-repeat="message in social.linkPin track by $index" class="animate">
-            {{ message }} 
+            <a href="{{message}}" target="_blank">{{ message }}</a> 
           </div>
         </div>
         <div id="texte" class="wrap">
